@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karan's Projects</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      color: #d3d3d3;
+      text-align: center;
+    }
+    .project {
+      background: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      color: #fff;
+      background: #444;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    .back-btn:hover {
+      background: #666;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .project-details {
+      display: none;
+      margin-top: 1rem;
+    }
+    .project.active .project-details {
+      display: block;
+    }
+    .project h2 {
+      cursor: pointer;
+    }
+    .view-code-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      color: #1f1f1f;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    .view-code-btn:hover {
+      background-color: #e0e0e0;
+    }
+    .emotion-images {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+    .emotion-images img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">← Back to Portfolio</a>
+  <h1>My Projects</h1>
+
+  <div class="project" onclick="toggleDetails(this)">
+    <h2>Mini Food Ordering App</h2>
+    <a class="view-code-btn" href="https://github.com/Karan-I/mini_swiggy_app.git" target="_blank">View Code</a>
+    <div class="project-details">
+      <p>
+        This project is a simple yet functional web-based food ordering app that simulates a basic version of platforms like Swiggy or Zomato.<br><br>
+        <strong>Tech Stack Used:</strong>
+        <ul>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Backend:</strong> Python with Flask</li>
+        </ul>
+        <strong>Features:</strong>
+        <ul>
+          <li>Display a menu with food items, prices, and images.</li>
+          <li>Add items to a cart dynamically.</li>
+          <li>Remove items from the cart.</li>
+          <li>Show total bill based on items selected.</li>
+          <li>Checkout simulation (no payment integration).</li>
+        </ul>
+        <strong>How It Works:</strong>
+        <ul>
+          <li>The HTML page shows all food items with buttons to add to cart.</li>
+          <li>JavaScript handles the cart logic (add, remove, update total).</li>
+          <li>Flask in Python receives orders from the frontend using forms or fetch API.</li>
+          <li>Backend stores the order temporarily and sends a success message.</li>
+        </ul>
+        <strong>Folder Structure:</strong>
+        <ul>
+          <li><code>/templates</code> → HTML files</li>
+          <li><code>/static</code> → CSS, JS, images</li>
+          <li><code>app.py</code> → Flask server code</li>
+        </ul>
+        <pre><code>if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+        <strong>📌 Notes:</strong>
+        <ul>
+          <li>No database is used in this basic version; data is handled in memory.</li>
+          <li>You can expand it by integrating SQLite or Firebase for persistent data.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <div class="project" onclick="toggleDetails(this)">
+    <h2>Face Emotion Recognition</h2>
+    <div class="project-details">
+      <p>
+        <strong>Objective:</strong>
+        <ul>
+          <li>To identify various emotions projected on human faces to improve interaction between intelligent systems and human beings.</li>
+          <li>To analyze human facial expressions and detect six basic universal emotions: happiness, sadness, anger, fear, surprise, and disgust.</li>
+          <li>To enhance human–artificial interaction, allowing better control over AI systems using facial gestures and expressions.</li>
+        </ul>
+
+        <strong>Introduction:</strong>
+        <p>Image Processing is a vast area of research with widespread applications. Facial expressions are non-verbal cues that reflect human emotions. Automatic facial expression recognition plays a significant role in artificial intelligence, robotics, personal identification, access control, videophone, and teleconferencing.</p>
+
+        <p>The main aim of this project is to develop an Automatic Facial Expression Recognition System that takes human facial images with expressions as input and classifies them into six different expression classes.</p>
+
+        <div class="emotion-images">
+          <img src="https://cdn.pixabay.com/photo/2020/06/08/09/01/hair-5273705_1280.jpg" alt="Happiness">
+          <img src="https://cdn.pixabay.com/photo/2016/11/29/03/44/woman-1867127_1280.jpg" alt="Sadness">
+          <img src="https://cdn.pixabay.com/photo/2020/07/31/17/48/angry-5453674_1280.jpg" alt="Anger">
+          <img src="https://cdn.pixabay.com/photo/2016/02/17/14/17/person-1205140_1280.jpg" alt="Fear">
+          <img src="https://cdn.pixabay.com/photo/2016/02/09/08/18/female-1188508_1280.jpg" alt="Surprise">
+          <img src="https://cdn.pixabay.com/photo/2016/07/19/13/08/boy-1528150_1280.jpg" alt="Disgust">
+        </div>
+
+        <strong>Existing Method:</strong>
+        <p>Automatic Facial Expression Recognition has seen major development in recent years, with various notable researches published. For facial expression detection, developers have implemented different extraction methods like Linear Vector Quantization (LVQ), Supervised Descent Method (SDM), and Local Binary Pattern (LBP).</p>
+        <p>These conventional extraction techniques are often extremely complex and lead to lower recognition accuracy. Furthermore, many of these techniques are limited in recognizing only a few emotions.</p>
+
+        <strong>Proposed Method:</strong>
+        <ul>
+          <li>The paper proposes Facial Emotion Recognition of a person through three steps:</li>
+          <ul>
+            <li>Captured Image</li>
+            <li>Face Detection</li>
+            <li>Using Histogram of Oriented Gradient Feature</li>
+          </ul>
+          <li><strong>Histogram Of Gradient (HOG)</strong> is a window-supported feature descriptor that uses the gradient filter. The extracted features are based on the edge information of the registered face images. It extracts the visual features—for example, a smile expression means curvature-shaped eyes.</li>
+        </ul>
+
+        <strong>Implementation of the HOG descriptor algorithm is as follows:</strong>
+        <ul>
+          <li>Divide the image into small connected regions called cells, and for each cell compute a histogram of gradient directions or edge orientations for the pixels within the cell.
+Discretize each cell into angular bins according to the gradient orientation. 
+Each cell's pixel contributes weighted gradient to its corresponding angular bin.
+Groups of adjacent cells are considered as spatial regions called blocks. The grouping of cells into a block is the basis for grouping and normalization of histograms.
+Normalized group of histograms represents the block histogram. The set of these block histograms represents the descriptor.</li>
+        </ul>
+
+        <strong>Software/Hardware specifications:</strong>
+        <ul>
+          <li>MatLab (R2019b)</li>
+           <li>Machine Learning Algorithms</li>
+        </ul>
+
+        <strong>Conclusion:</strong>
+        <p>
+          The proposed facial emotion recognition system provides an efficient way to detect and classify human emotions using image processing techniques. By leveraging HOG feature extraction and classification through machine learning, the system is capable of recognizing key facial expressions with improved accuracy and reduced complexity compared to traditional methods. This enhances the interaction between humans and machines, making intelligent systems more responsive and human-centric.
+        </p>
+      </p>
+    </div>
+  </div>
+  <div class="project" onclick="toggleDetails(this)">
+    <h2>Planetary Age Calculator</h2>
+    <a class="view-code-btn" href="https://github.com/Karan-I/planetary_age_calculator.git" target="_blank">View Code</a>
+    <div class="project-details">
+      <p>
+        This project calculates your age on different planets based on your age on Earth. It helps users understand how age varies due to different planetary orbits and This project is a fun activity.<br><br>
+        <strong>Key Features:</strong>
+        <ul>
+          <li>User inputs age in Earth years.</li>
+          <li>Calculates equivalent age on Mercury, Venus, Mars, Jupiter, Saturn, Uranus, and Neptune.</li>
+          <li>Simple, interactive web interface.</li>
+        </ul>
+        <strong>Tech Used:</strong>
+        <ul>
+          <li>HTML for structure</li>
+          <li>CSS for styling</li>
+          <li>JavaScript </li>
+          <li>python with Flask</li>
+        </ul>
+        <strong>Sample Formula:</strong>
+        <pre><code>ageOnMars = earthAge / 1.88</code></pre>
+        <strong>✅ Outcome:</strong>
+        <ul>
+          <li>Interactive and educational experience</li>
+          <li>Shows age variations across planets</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(element) {
+      element.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karan Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      font-size: 6rem;
+      font-weight: bold;
+      color: #d3d3d3;
+      padding: 2rem;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+    .code-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .code-line {
+      color: rgba(255, 255, 255, 0.1);
+      font-family: monospace;
+      font-size: 1rem;
+      white-space: nowrap;
+      position: absolute;
+      animation: scrollDown 15s linear infinite;
+    }
+    @keyframes scrollDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(100%); }
+    }
+    .button-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      z-index: 2;
+      position: relative;
+    }
+    .button-bar button {
+      background-color: #1f1f1f;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .button-bar button:hover {
+      background-color: #333;
+    }
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem auto 2rem;
+      max-width: 400px;
+      z-index: 2;
+      position: relative;
+    }
+    .contact-box input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #1f1f1f;
+      color: #fff;
+    }
+    .contact-box button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-box button:hover {
+      background-color: #218838;
+    }
+    .main-content {
+      padding: 2rem;
+      display: none;
+      z-index: 2;
+      position: relative;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #ccc;
+      margin-top: 2rem;
+    }
+    .summary, .education, .skills {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+    .edu-subheading {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #fff;
+      margin-top: 1rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .confetti {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="code-background" id="codeBackground"></div>
+  <header>KARAN</header>
+
+  <form id="contactForm" class="contact-box">
+    <input type="email" name="email" id="email" placeholder="Email" required />
+    <input type="text" name="name" id="name" placeholder="Name" required />
+    <input type="text" name="subject" id="subject" placeholder="Subject" required />
+    <input type="text" name="message" id="message" placeholder="Message" required />
+    <button type="submit">Hire Me</button>
+  </form>
+
+  <div class="button-bar">
+    <button onclick="toggleContent()">About</button>
+    <button onclick="window.open('https://www.linkedin.com/in/karan0305/', '_blank')">LinkedIn</button>
+    <button onclick="window.location.href='mailto:desilvakaran.i2001@gmail.com'">Gmail</button>
+    <button onclick="window.open('https://wa.me/919176098496', '_blank')">WhatsApp</button>
+  </div>
+
+  <!-- Projects Button -->
+  <div style="text-align: center; margin-top: 1rem;">
+    <button onclick="window.location.href='projects.html'" style="
+  background-color: #1f1f1f;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+">Projects</button>
+  </div>
+
+  <!-- About Section -->
+  <div class="main-content" id="mainContent">
+    <div class="section-title">Summary</div>
+    <div class="summary">
+      I’m a Computer Science Engineering graduate with a strong passion for software development, cloud technologies,
+      virtualization, and system administration. I enjoy building projects, exploring new tech, and solving real-world
+      problems using code. I'm currently enhancing my skills in Python, DevOps, and frontend development.
+    </div>
+
+    <div class="section-title">Education</div>
+    <div class="education">
+      <div class="edu-subheading">Apollo Engineering College (2019–2023)</div>
+      <ul>
+        <li>Specialized in software development, data structures, algorithms, and computer networks.</li>
+        <li>Gained practical experience through hands-on projects and coursework, strengthening problem-solving and coding abilities.</li>
+        <li>Scored a CGPA of 7.85.</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Technical Skills</div>
+    <div class="skills">
+      <ul>
+        <li><strong>System Administration:</strong> Windows, Linux, Virtualization (VMware, VirtualBox)</li>
+        <li><strong>Networking & Security:</strong> TCP/IP, Firewalls, VPN, Active Directory</li>
+        <li><strong>Programming & Scripting:</strong> Python, SQL, Bash, Dart, JavaScript</li>
+        <li><strong>Database Management:</strong> MySQL, PostgreSQL</li>
+        <li><strong>Cloud & DevOps:</strong> AWS (Basics), Git, CI/CD</li>
+        <li><strong>Software Tools:</strong> MATLAB, Excel, VS Code</li>
+        <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Flutter</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Certifications</div>
+    <div class="skills">
+      <ul>
+        <li>Python for Data Science – IBM <button onclick="window.open('https://www.credly.com/badges/3a916651-e3f5-4fac-82b6-b2481eccf30b/public_url', '_blank')">View</button></li>
+        <li>Advanced Software Engineering Virtual Job Simulation – Walmart (Forage) <button onclick="window.open('https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Walmart%20USA/oX6f9BbCL9kJDJzfg_Walmart%20USA_qK29ZALhk9dMKPepg_1725688721539_completion_certificate.pdf', '_blank')">View</button></li>
+        <li>Cybersecurity Threat Landscape – LinkedIn Learning <button onclick="window.open('https://www.linkedin.com/learning/certificates/6c987e9e0f41f6ba68998c58586eb61fafd924ab30ee8ceded19a91d267c8223', '_blank')">View</button></li>
+        <li>Learning Python – LinkedIn Learning <button onclick="window.open('https://www.linkedin.com/learning/certificates/ebcf2130512a363c55f9c3435de668070d7bacb3c7428a6e2a7c3fa8064b2fdd', '_blank')">View</button></li>
+      </ul>
+    </div>
+  </div>
+
+<!-- Projects Section -->
+<div class="main-content" id="projectsContent" style="display: none;">
+    <div class="section-title">Projects</div>
+    <div class="summary">
+      <p>✅ <strong>Mini Swiggy-like Food Ordering App</strong> — A basic version of a food ordering system using Python, HTML, CSS, and JavaScript.</p>
+      <p>✅ <strong>Face Emotion Recognition</strong> — Built using Python and machine learning to detect facial emotions from webcam input.</p>
+      <!-- Add more projects here -->
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas" class="confetti"></canvas>
+
+  <script>
+    emailjs.init("PVscoXrtRwEJFXta9");
+
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+      };
+
+      emailjs.send("service_karan03", "template_3hcjagq", params)
+        .then(function (res) {
+          console.log("Email sent!", res);
+          showConfetti();
+          alert("Message sent successfully!");
+          form.reset();
+        })
+        .catch(function (err) {
+          console.error("Error:", err);
+          alert("Failed to send message. Please try again.");
+        });
+    });
+
+    function toggleContent() {
+      const content = document.getElementById("mainContent");
+      content.style.display = content.style.display === "none" ? "block" : "none";
+    }
+
+    function toggleProjects() {
+      const projects = document.getElementById("projectsContent");
+      projects.style.display = projects.style.display === "none" ? "block" : "none";
+    }
+
+    function showConfetti() {
+      const canvas = document.getElementById("confettiCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.style.display = "block";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const confettiCount = 150;
+      const confetti = Array.from({ length: confettiCount }).map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * confettiCount,
+        color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+        tilt: Math.random() * 10 - 10,
+        tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+        tiltAngle: 0
+      }));
+
+      function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach(c => {
+          c.tiltAngle += c.tiltAngleIncrement;
+          c.y += Math.cos(c.d);
+          c.x += Math.sin(c.d);
+          c.tilt = Math.sin(c.tiltAngle) * 15;
+          ctx.beginPath();
+          ctx.lineWidth = c.r;
+          ctx.strokeStyle = c.color;
+          ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+          ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+          ctx.stroke();
+        });
+      }
+
+      function animateConfetti() {
+        drawConfetti();
+        requestAnimationFrame(animateConfetti);
+      }
+
+      animateConfetti();
+      setTimeout(() => {
+        canvas.style.display = "none";
+      }, 9000);
+    }
+
+    const codeBackground = document.getElementById("codeBackground");
+    const codeSnippets = [
+      "def greet(name): return f'Hello, {name}'",
+      "console.log('Hello World');",
+      "<div class='container'></div>",
+      "SELECT * FROM users WHERE active = 1;",
+      "function sum(a, b) { return a + b; }",
+      "if user.is_admin: grant_access()",
+      "print('Python is awesome')"
+    ];
+
+    for (let i = 0; i < 50; i++) {
+      const line = document.createElement('div');
+      line.classList.add('code-line');
+      line.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+      line.style.top = `${Math.random() * 100}vh`;
+      line.style.left = `${Math.random() * 100}vw`;
+      line.style.animationDuration = `${10 + Math.random() * 10}s`;
+      codeBackground.appendChild(line);
+    }
+  </script>
+</body>
+</html>
