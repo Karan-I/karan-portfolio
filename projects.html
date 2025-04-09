@@ -225,6 +225,43 @@ Normalized group of histograms represents the block histogram. The set of these 
     </div>
   </div>
 
+  <div class="project" onclick="toggleDetails(this)">
+  <h2>Sales Data Analysis </h2>
+  <a class="view-code-btn" href="https://github.com/Karan-I/sales_data_analysis" target="_blank">View Code</a>
+  <div class="project-details">
+    <p>
+      This project involves analyzing sales data from a CSV file to derive meaningful business insights. It focuses on data cleaning, exploration, visualization, and dashboard creation to support data-driven decisions.<br><br>
+      <strong>Key Features:</strong>
+      <ul>
+        <li>Loads and processes raw sales data from CSV format.</li>
+        <li>Performs data cleaning, aggregation, and transformation.</li>
+        <li>Exploratory analysis using descriptive statistics and visualizations.</li>
+        <li>Generates an interactive dashboard with key metrics.</li>
+      </ul>
+      <strong>Tech Used:</strong>
+      <ul>
+        <li>Python (Pandas, Matplotlib, Seaborn)</li>
+        <li>SQL for querying data</li>
+        <li>Jupyter Notebook for analysis</li>
+        <li>Excel and CSV for data sources</li>
+      </ul>
+      <strong>Sample Query:</strong>
+      <pre><code>SELECT Region, SUM(Sales) AS TotalSales FROM sales_data GROUP BY Region;</code></pre>
+      <strong>📊 Sample Visualizations:</strong>
+      <ul>
+        <li><img src="https://raw.githubusercontent.com/Karan-I/sales_data_analysis/main/visualizations/monthly_orders.png" alt="Monthly Order Trends" style="width: 90%; border-radius: 8px; margin-top: 10px;"></li>
+        <li><img src="https://raw.githubusercontent.com/Karan-I/sales_data_analysis/main/visualizations/shipping_mode_usage.png" alt="Shipping Mode Usage" style="width: 90%; border-radius: 8px; margin-top: 10px;"></li>
+      </ul>
+      <strong>✅ Outcome:</strong>
+      <ul>
+        <li>Clear understanding of sales trends and patterns</li>
+        <li>Ready-to-use insights for decision making</li>
+        <li>Well-documented, beginner-friendly data analysis project</li>
+      </ul>
+    </p>
+  </div>
+</div>
+
   <script>
     function toggleDetails(element) {
       element.classList.toggle('active');
